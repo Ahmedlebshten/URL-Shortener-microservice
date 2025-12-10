@@ -5,9 +5,9 @@ Complete automated DevSecOps workflow deploying a URL Shortener microservice
 View Infrastructure Repo - View CI Pipeline - View GitOps Repo
 
 </div>
-<b> 📋 What This Project Does </b>
+<b> 📋 What This Project Does: </b>
 
-<b> End-to-end automated DevSecOps pipeline that: </b>
+<b> -> End-to-end automated DevSecOps pipeline that: </b>
 
 
 - Provisions AWS infrastructure (EKS, VPC, EC2) using Terraform.
