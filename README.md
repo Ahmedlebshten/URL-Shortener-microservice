@@ -25,7 +25,7 @@ A URL Shortener web service that converts long URLs into short, shareable links.
 └─────────────────────────────────────────────────────────────────┘
 
   ┌─────────────┐         ┌─────────────┐         ┌─────────────┐
-  │   GitHub    │───────▶ │   Jenkins   │───────▶│     AWS     │
+  │   GitHub    │───────▶ │   Jenkins   |───────▶│     AWS     │
   │  (Source)   │         │  (Trigger)  │         │    (Infra)  │
   └─────────────┘         └─────────────┘         └─────────────┘
                                 │
@@ -42,6 +42,7 @@ A URL Shortener web service that converts long URLs into short, shareable links.
                     │   ArgoCD (GitOps)     │
                     │  K8s Deployment       │
                     └───────────────────────┘
+                                |
                                 ▼
                     ┌───────────────────────┐
                     │   Monitoring Stack    │
@@ -120,7 +121,7 @@ Tech Stack:
 - Loki
 
 🔄 Workflow Automation
-text
+```
 1. Push to GitHub → Jenkins triggers Infrastructure Pipeline
 2. Terraform provisions AWS EKS cluster
 3. Security scans: Gitleaks + Trivy + SonarQube ✓
@@ -130,6 +131,7 @@ text
    ├─ Deploy Monitoring stack
    └─ Deploy Security tools
 5. Complete environment ready in ~15 minutes
+```
 Result: Fully automated infrastructure → build → deploy → monitor workflow with security integrated at every stage.
 
 🛠️ Tech Stack
