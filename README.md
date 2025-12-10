@@ -6,7 +6,8 @@ View Infrastructure Repo - View CI Pipeline - View GitOps Repo
 
 </div>
 <b> 📋 What This Project Does </b>
-End-to-end automated DevSecOps pipeline that:
+<b> End-to-end automated DevSecOps pipeline that: </b>
+
 
 - Provisions AWS infrastructure (EKS, VPC, EC2) using Terraform.
 - Builds and scans Docker images with integrated security tools (Trivy, Gitleaks, SonarQube).
@@ -118,7 +119,9 @@ OBSERVABILITY & MONITORING
 <h2> <b> 📂 Project Structure </h2> </b>
            
 <h3> <b> 1. Infrastructure Pipeline </b> </h3>
-Purpose: Automates AWS infrastructure provisioning with Terraform
+<b> Purpose: </b>
+
+Automates AWS infrastructure provisioning with Terraform
 
 <b> Key Features: </b> 
 
@@ -135,7 +138,9 @@ Purpose: Automates AWS infrastructure provisioning with Terraform
 - Security Tools (Trivy, Gitleaks, SonarQube)
 
 <h3> <b> 2. CI Pipeline </b> </h3>
-Purpose: Builds and pushes URL Shortener Docker images
+<b> Purpose: </b>
+
+Builds and pushes URL Shortener Docker images
 
 <b> Key Features: </b> 
 
@@ -159,7 +164,9 @@ Purpose: Builds and pushes URL Shortener Docker images
 - Trivy
 
 <h3> <b> 3. GitOps Deployment Pipeline </b> </h3>
-Purpose: Deploys applications using ArgoCD (GitOps approach)
+<b> Purpose: </b>
+
+Deploys applications using ArgoCD (GitOps approach)
 
 <b> Key Features: </b> 
 
