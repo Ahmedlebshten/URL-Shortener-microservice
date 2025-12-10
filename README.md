@@ -140,8 +140,8 @@ OBSERVABILITY & MONITORING
 - Security Tools (Trivy, Gitleaks, SonarQube)
 
 <h3> <b> 2. CI Pipeline </b> </h3>
-<b> Purpose: </b>
-
+<b> Purpose:  
+</b>
 
 - Builds and pushes URL Shortener Docker images
 
