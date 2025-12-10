@@ -289,6 +289,11 @@ Docker build pipeline for URL Shortener application
 
 ArgoCD deployment manifests with monitoring and security tools
 
+<b> 🔗 DockerHub Repo </b> 
+https://hub.docker.com/repository/docker/ahmedlebshten/url-shortener/general
+
+Create image form Dockerfile, build, push it to DockerHub
+
 <b> 📬 Contact </b> 
 
 - GitHub: [https://github.com/Ahmedlebshten]
