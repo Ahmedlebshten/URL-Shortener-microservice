@@ -250,11 +250,10 @@ git clone https://github.com/Ahmedlebshten/Jenkins-CI-Pipeline.git
 
 git clone https://github.com/Ahmedlebshten/ArgoCD-Pipeline.git
 ```
-<b> Access deployed services: </b> 
-
-<b> URL Shortener </b> 
+<b> Access Deployed Service: </b> 
+``` 
 kubectl get svc url-shortener
-
+```
 <b> 📊 Monitoring: </b> 
 
 - Prometheus: Collects metrics (requests/sec, response time, resource usage).
