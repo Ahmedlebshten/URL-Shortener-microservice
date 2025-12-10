@@ -6,6 +6,7 @@ View Infrastructure Repo - View CI Pipeline - View GitOps Repo
 
 </div>
 <b> 📋 What This Project Does </b>
+
 <b> End-to-end automated DevSecOps pipeline that: </b>
 
 
