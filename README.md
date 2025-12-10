@@ -115,7 +115,7 @@ OBSERVABILITY & MONITORING
 
 ```
 
-📦 <h2> <b> Project Structure </h2> </b>
+📦<h2> <b> Project Structure </h2> </b>
 
 <h3> <b> 1. Infrastructure Pipeline </b> </h3>
 Purpose: Automates AWS infrastructure provisioning with Terraform
