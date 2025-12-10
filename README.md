@@ -1,4 +1,4 @@
-🚀 DevSecOps CI/CD Pipeline with GitOps
+<b> <h1> 🚀 DevSecOps CI/CD Pipeline with GitOps </b> </h1>
 <div align="center">
 Complete automated DevSecOps workflow deploying a URL Shortener microservice
 
