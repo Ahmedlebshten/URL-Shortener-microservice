@@ -17,7 +17,8 @@ End-to-end automated DevSecOps pipeline that:
 Main Application: 
 A URL Shortener web service that converts long URLs into short, shareable links. Built with Node.js, SQLlite, containerized with Docker, and deployed on Kubernetes via ArgoCD.
 
-🏗️ URL Shortener web service Architecture Flow ```
+🏗️ URL Shortener web service Architecture Flow 
+```
 
 ┌─────────────────────────────────────────────────────────────────┐
 │                     COMPLETE INFRASTRUCTURE PIPELINE FLOW       |              
