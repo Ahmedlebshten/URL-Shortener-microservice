@@ -19,7 +19,7 @@ View Infrastructure Repo - View CI Pipeline - View GitOps Repo
 Main Application: 
 A URL Shortener web service that converts long URLs into short, shareable links. Built with Node.js, SQLlite, containerized with Docker, and deployed on Kubernetes via ArgoCD.
 
-<b> 🏗️ URL Shortener Webservice Architecture Flow </b>
+<b> 🏗️ URL Shortener Webservice Architecture Flow: </b>
 ```
 
 ┌──────────────────────────────────────────────────────────────────────┐
@@ -194,7 +194,7 @@ OBSERVABILITY & MONITORING
 - Grafana
 - Loki
 
-<b> 🔄 Workflow Automation </b> 
+<b> 🔄 Workflow Automation: </b> 
 ```
 1. Push to Infra GitHub repo → Jenkins triggers:
    └─ Infra Pipeline (provision / update EKS infrastructure)
@@ -231,7 +231,7 @@ OBSERVABILITY & MONITORING
 ```
 Result: Fully automated infrastructure → build → deploy → monitor workflow with security integrated at every stage.
 
-<b> 🛠️ Tech Stack </b> 
+<b> 🛠️ Tech Stack: </b> 
 
 - Infrastructure	-> Terraform, AWS (EKS, EC2, VPC, S3)
 - CI/CD	-> Jenkins, Docker, Git
@@ -242,7 +242,7 @@ Result: Fully automated infrastructure → build → deploy → monitor workflow
   
 <b> 🚀 Quick Start </b> 
 
-<b> Clone all repositories </b> 
+<b> Clone All Repositories: </b> 
 ```
 git clone https://github.com/Ahmedlebshten/Jenkins-Pipeline-Build-Infra.git
 
@@ -273,7 +273,7 @@ kubectl get svc url-shortener
 - ✅ Microservices Architecture (URL Shortener)
 
 <b> <h3> 📂 Project Repositories: </b> </h3>
-
+```
 <b> 🔗 Infrastructure Pipeline </b> 
 [github.com/Ahmedlebshten/Jenkins-Pipeline-Build-Infra](https://github.com/Ahmedlebshten/Jenkins-Pipeline-Build-Infra)
 
@@ -288,7 +288,7 @@ Docker build pipeline for URL Shortener application
 [github.com/Ahmedlebshten/ArgoCD-Pipeline](https://github.com/Ahmedlebshten/ArgoCD-Pipeline)
 
 ArgoCD deployment manifests with monitoring and security tools
-
+```
 <b> 📬 Contact </b> 
 
 - GitHub: [https://github.com/Ahmedlebshten]
