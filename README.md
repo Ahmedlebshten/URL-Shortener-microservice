@@ -5,7 +5,7 @@ Complete automated DevSecOps workflow deploying a URL Shortener microservice
 View Infrastructure Repo - View CI Pipeline - View GitOps Repo
 
 </div>
-📋 What This Project Does
+<b> 📋 What This Project Does </b>
 End-to-end automated DevSecOps pipeline that:
 
 - Provisions AWS infrastructure (EKS, VPC, EC2) using Terraform.
@@ -115,45 +115,42 @@ OBSERVABILITY & MONITORING
 
 ```
 
-<h2> <b> Project Structure </h2> </b>
-📦
+<h2> <b> 📂 Project Structure </h2> </b>
            
 <h3> <b> 1. Infrastructure Pipeline </b> </h3>
 Purpose: Automates AWS infrastructure provisioning with Terraform
 
-Key Features:
+<b> Key Features: </b> 
 
 - Provisions EKS cluster, VPC, EC2 instances on AWS.
 - Modular Terraform architecture with S3 remote state.
 - Integrated security scanning: Gitleaks (secrets), Trivy (IaC), SonarQube (code quality).
 - Auto-triggers all downstream pipelines on success.
 
-<b> Tech Stack: </b>
+<b> 🛠️ Tech Stack: </b>
 
 - Terraform
 - AWS (EKS/EC2/VPC)
 - Jenkins
 - Security Tools (Trivy, Gitleaks, SonarQube)
 
-
-
 <h3> <b> 2. CI Pipeline </b> </h3>
 Purpose: Builds and pushes URL Shortener Docker images
 
-Key Features:
+<b> Key Features: </b> 
 
 - Builds Docker image for URL Shortener application (Node.js + SQLlite).
 - Trivy vulnerability scanning before image push.
 - Multi-stage Docker builds for optimization.
 - Pushes to Docker Hub/ECR.
 
-Application: Full-stack URL Shortener with REST API
+<b> Application: Full-stack URL Shortener with REST API </b> 
 
 - Frontend: HTML/CSS/JavaScript
 - Backend: Node.js + Express
 - Database: SQLlite
 
-Tech Stack: 
+<b> 🛠️ Tech Stack: </b> 
 
 - Docker
 - Node.js
@@ -164,20 +161,20 @@ Tech Stack:
 <h3> <b> 3. GitOps Deployment Pipeline </b> </h3>
 Purpose: Deploys applications using ArgoCD (GitOps approach)
 
-Key Features:
+<b> Key Features: </b> 
 
 - Installs ArgoCD on EKS cluster.
 - Deploys URL Shortener service with auto-scaling (3-10 pods).
 - Deploys monitoring stack: Prometheus, Grafana, Loki, Promtail.
 - Deploys security tools: Trivy Operator, Gitleaks, SonarQube.
 
-Components:
+<b> Components: </b> 
 
 - ArgoCD Application: URL Shortener deployment + LoadBalancer service.
 - Monitoring: Full observability with metrics, logs, and dashboards.
 - Security: Runtime vulnerability scanning and code quality monitoring.
 
-Tech Stack:
+<b> 🛠️ Tech Stack: </b> 
 
 - ArgoCD
 - Kubernetes
@@ -186,7 +183,7 @@ Tech Stack:
 - Grafana
 - Loki
 
-🔄 Workflow Automation
+<b> 🔄 Workflow Automation </b> 
 ```
 1. Push to Infra GitHub repo → Jenkins triggers:
    └─ Infra Pipeline (provision / update EKS infrastructure)
@@ -223,7 +220,7 @@ Tech Stack:
 ```
 Result: Fully automated infrastructure → build → deploy → monitor workflow with security integrated at every stage.
 
-🛠️ Tech Stack
+<b> 🛠️ Tech Stack </b> 
 
 - Infrastructure	-> Terraform, AWS (EKS, EC2, VPC, S3)
 - CI/CD	-> Jenkins, Docker, Git
@@ -232,7 +229,7 @@ Result: Fully automated infrastructure → build → deploy → monitor workflow
 - Monitoring	-> Prometheus, Grafana, Loki, Promtail
 - Application	-> Node.js, Express, SQLlite
   
-🚀 Quick Start
+<b> 🚀 Quick Start </b> 
 bash
 # Clone all repositories
 git clone https://github.com/Ahmedlebshten/Jenkins-Pipeline-Build-Infra.git
@@ -241,32 +238,19 @@ git clone https://github.com/Ahmedlebshten/Jenkins-CI-Pipeline.git
 
 git clone https://github.com/Ahmedlebshten/ArgoCD-Pipeline.git
 
-Access deployed services:
+<b> Access deployed services: </b> 
 
 bash
 # URL Shortener
 kubectl get svc url-shortener
 
-🔒 Security Features
-Security integrated at every pipeline stage:
-
-Pre-deployment: 
-
-- Gitleaks (secrets)
-- Trivy (IaC)
-- SonarQube (code quality)
-
-Build time: Trivy Docker image scanning, multi-stage builds
-
-Runtime: Trivy Operator, Network Policies, Pod Security Standards
-
-📊 Monitoring:
+<b> 📊 Monitoring: </b> 
 
 - Prometheus: Collects metrics (requests/sec, response time, resource usage).
 - Grafana: Pre-configured dashboards for URL Shortener, Kubernetes, and security.
 - Loki: Centralized log aggregation from all pods.
 
-💡 Skills Demonstrated:
+<b> 💡 Skills Demonstrated: </b> 
 
 - ✅ DevSecOps (security shift-left)
 - ✅ Infrastructure as Code (Terraform)
@@ -278,24 +262,24 @@ Runtime: Trivy Operator, Network Policies, Pod Security Standards
 - ✅ Security Integration (Trivy/Gitleaks/SonarQube)
 - ✅ Microservices Architecture (URL Shortener)
 
-📂 <b> <h3> Project Repositories: </b> </h3>
+<b> <h3> 📂 Project Repositories: </b> </h3>
 
-🔗 Infrastructure Pipeline
+<b> 🔗 Infrastructure Pipeline </b> 
 [github.com/Ahmedlebshten/Jenkins-Pipeline-Build-Infra](https://github.com/Ahmedlebshten/Jenkins-Pipeline-Build-Infra)
 
 Terraform IaC for AWS EKS provisioning with security scanning
 
-🔗 CI Pipeline
+<b> 🔗 CI Pipeline </b> 
 [github.com/Ahmedlebshten/Jenkins-CI-Pipeline](https://github.com/Ahmedlebshten/Jenkins-CI-Pipeline)
 
 Docker build pipeline for URL Shortener application
 
-🔗 GitOps Deployment
+<b> 🔗 GitOps Deployment </b> 
 [github.com/Ahmedlebshten/ArgoCD-Pipeline](https://github.com/Ahmedlebshten/ArgoCD-Pipeline)
 
 ArgoCD deployment manifests with monitoring and security tools
 
-📬 Contact
+<b> 📬 Contact </b> 
 
 - GitHub: [https://github.com/Ahmedlebshten]
 - LinkedIn: [https://www.linkedin.com/in/ahmedlebshten]
