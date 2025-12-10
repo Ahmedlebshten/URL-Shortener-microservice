@@ -49,7 +49,7 @@ text
 
 📦 Project Structure
 
-🔗 <h6> 1. Infrastructure Pipeline </h6>
+🔗 <h3> 1. Infrastructure Pipeline </h3>
 Purpose: Automates AWS infrastructure provisioning with Terraform
 
 Key Features:
@@ -68,7 +68,7 @@ Tech Stack:
 
 
 
-🔗 2. CI Pipeline
+🔗 <h3> 2. CI Pipeline </h3>
 Purpose: Builds and pushes URL Shortener Docker images
 
 Key Features:
@@ -92,7 +92,7 @@ Tech Stack:
 - Jenkins
 - Trivy
 
-🔗 3. GitOps Deployment
+🔗 <h3> 3. GitOps Deployment </h3>
 Purpose: Deploys applications using ArgoCD (GitOps approach)
 
 Key Features:
@@ -208,10 +208,10 @@ github.com/Ahmedlebshten/ArgoCD-Pipeline
 ArgoCD deployment manifests with monitoring and security tools
 
 📬 Contact
-Ahmed Lebshten
-GitHub: @Ahmedlebshten
-LinkedIn: [https://www.linkedin.com/in/ahmedlebshten/]
-Email: [ahmedlebshtenlebshten@gmail.com]
+
+- GitHub: [https://github.com/Ahmedlebshten]
+- LinkedIn: [https://www.linkedin.com/in/ahmedlebshten]
+- Email: [ahmedlebshtenlebshten@gmail.com]
 
 <div align="center">
 ⭐ Star this project if you find it useful!
