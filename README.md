@@ -17,7 +17,7 @@ End-to-end automated DevSecOps pipeline that:
 Main Application: 
 A URL Shortener web service that converts long URLs into short, shareable links. Built with Node.js, SQLlite, containerized with Docker, and deployed on Kubernetes via ArgoCD.
 
-🏗️ URL Shortener Webservice Architecture Flow 
+<b> 🏗️ URL Shortener Webservice Architecture Flow </b>
 ```
 
 ┌──────────────────────────────────────────────────────────────────────┐
@@ -115,8 +115,9 @@ OBSERVABILITY & MONITORING
 
 ```
 
-📦<h2> <b> Project Structure </h2> </b>
-
+<h2> <b> Project Structure </h2> </b>
+📦
+           
 <h3> <b> 1. Infrastructure Pipeline </b> </h3>
 Purpose: Automates AWS infrastructure provisioning with Terraform
 
@@ -127,7 +128,7 @@ Key Features:
 - Integrated security scanning: Gitleaks (secrets), Trivy (IaC), SonarQube (code quality).
 - Auto-triggers all downstream pipelines on success.
 
-Tech Stack: 
+<b> Tech Stack: </b>
 
 - Terraform
 - AWS (EKS/EC2/VPC)
