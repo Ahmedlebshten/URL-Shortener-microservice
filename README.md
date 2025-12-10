@@ -49,7 +49,7 @@ text
 
 📦 Project Structure
 
-🔗 <h2> <b> 1. Infrastructure Pipeline </b> </h2>
+<h2> <b> 1. Infrastructure Pipeline </b> </h2>
 Purpose: Automates AWS infrastructure provisioning with Terraform
 
 Key Features:
@@ -68,7 +68,7 @@ Tech Stack:
 
 
 
-🔗 <h3> <b> 2. CI Pipeline </b> </h3>
+<h3> <b> 2. CI Pipeline </b> </h3>
 Purpose: Builds and pushes URL Shortener Docker images
 
 Key Features:
@@ -92,7 +92,7 @@ Tech Stack:
 - Jenkins
 - Trivy
 
-🔗 <h3> <b> 3. GitOps Deployment Pipeline </b> </h3>
+<h3> <b> 3. GitOps Deployment Pipeline </b> </h3>
 Purpose: Deploys applications using ArgoCD (GitOps approach)
 
 Key Features:
@@ -173,7 +173,7 @@ Pre-deployment:
 
 Build time: Trivy Docker image scanning, multi-stage builds
 
-Runtime: Trivy Operator, RBAC, Network Policies, Pod Security Standards
+Runtime: Trivy Operator, Network Policies, Pod Security Standards
 
 📊 Monitoring:
 
