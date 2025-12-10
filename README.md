@@ -241,17 +241,17 @@ Result: Fully automated infrastructure → build → deploy → monitor workflow
 - Application	-> Node.js, Express, SQLlite
   
 <b> 🚀 Quick Start </b> 
-bash
+
 <b> Clone all repositories </b> 
+```
 git clone https://github.com/Ahmedlebshten/Jenkins-Pipeline-Build-Infra.git
 
 git clone https://github.com/Ahmedlebshten/Jenkins-CI-Pipeline.git
 
 git clone https://github.com/Ahmedlebshten/ArgoCD-Pipeline.git
-
+```
 <b> Access deployed services: </b> 
 
-bash
 <b> URL Shortener </b> 
 kubectl get svc url-shortener
 
