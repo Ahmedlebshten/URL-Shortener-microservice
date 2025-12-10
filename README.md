@@ -122,7 +122,7 @@ OBSERVABILITY & MONITORING
 <h3> <b> 1. Infrastructure Pipeline </b> </h3>
 <b> Purpose: </b>
 
-Automates AWS infrastructure provisioning with Terraform
+- Automates AWS infrastructure provisioning with Terraform
 
 <b> Key Features: </b> 
 
@@ -141,7 +141,7 @@ Automates AWS infrastructure provisioning with Terraform
 <h3> <b> 2. CI Pipeline </b> </h3>
 <b> Purpose: </b>
 
-Builds and pushes URL Shortener Docker images
+- Builds and pushes URL Shortener Docker images
 
 <b> Key Features: </b> 
 
@@ -167,7 +167,7 @@ Builds and pushes URL Shortener Docker images
 <h3> <b> 3. GitOps Deployment Pipeline </b> </h3>
 <b> Purpose: </b>
 
-Deploys applications using ArgoCD (GitOps approach)
+- Deploys applications using ArgoCD (GitOps approach)
 
 <b> Key Features: </b> 
 
