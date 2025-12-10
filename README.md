@@ -49,7 +49,7 @@ text
 
 📦 Project Structure
 
-🔗 <h3> 1. Infrastructure Pipeline </h3>
+🔗 <h2> <b> 1. Infrastructure Pipeline </b> </h2>
 Purpose: Automates AWS infrastructure provisioning with Terraform
 
 Key Features:
@@ -68,7 +68,7 @@ Tech Stack:
 
 
 
-🔗 <h3> 2. CI Pipeline </h3>
+🔗 <h3> <b> 2. CI Pipeline </b> </h3>
 Purpose: Builds and pushes URL Shortener Docker images
 
 Key Features:
@@ -92,7 +92,7 @@ Tech Stack:
 - Jenkins
 - Trivy
 
-🔗 <h3> 3. GitOps Deployment </h3>
+🔗 <h3> <b> 3. GitOps Deployment Pipeline </b> </h3>
 Purpose: Deploys applications using ArgoCD (GitOps approach)
 
 Key Features:
@@ -196,15 +196,18 @@ Runtime: Trivy Operator, RBAC, Network Policies, Pod Security Standards
 📂 Project Repositories:
 
 🔗 Infrastructure Pipeline
-github.com/Ahmedlebshten/Jenkins-Pipeline-Build-Infra
+[github.com/Ahmedlebshten/Jenkins-Pipeline-Build-Infra](https://github.com/Ahmedlebshten/Jenkins-Pipeline-Build-Infra)
+
 Terraform IaC for AWS EKS provisioning with security scanning
 
 🔗 CI Pipeline
-github.com/Ahmedlebshten/Jenkins-CI-Pipeline
+[github.com/Ahmedlebshten/Jenkins-CI-Pipeline](https://github.com/Ahmedlebshten/Jenkins-CI-Pipeline)
+
 Docker build pipeline for URL Shortener application
 
 🔗 GitOps Deployment
-github.com/Ahmedlebshten/ArgoCD-Pipeline
+[github.com/Ahmedlebshten/ArgoCD-Pipeline](https://github.com/Ahmedlebshten/ArgoCD-Pipeline)
+
 ArgoCD deployment manifests with monitoring and security tools
 
 📬 Contact
