@@ -48,7 +48,8 @@ text
                     └───────────────────────┘
 
 📦 Project Structure
-🔗 1. Infrastructure Pipeline
+
+🔗 <h6> 1. Infrastructure Pipeline </h6>
 Purpose: Automates AWS infrastructure provisioning with Terraform
 
 Key Features:
@@ -142,7 +143,9 @@ Result: Fully automated infrastructure → build → deploy → monitor workflow
 bash
 # Clone all repositories
 git clone https://github.com/Ahmedlebshten/Jenkins-Pipeline-Build-Infra.git
+
 git clone https://github.com/Ahmedlebshten/Jenkins-CI-Pipeline.git
+
 git clone https://github.com/Ahmedlebshten/ArgoCD-Pipeline.git
 
 # Configure Jenkins with AWS credentials
