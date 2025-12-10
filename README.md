@@ -20,34 +20,99 @@ A URL Shortener web service that converts long URLs into short, shareable links.
 🏗️ URL Shortener web service Architecture Flow 
 ```
 
-┌─────────────────────────────────────────────────────────────────┐
-│                     COMPLETE INFRASTRUCTURE PIPELINE FLOW       |              
-└─────────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────────┐
+│                 COMPLETE INFRA + CI/CD GITOPS FLOW                   │
+└──────────────────────────────────────────────────────────────────────┘
 
-  ┌─────────────┐         ┌─────────────┐         ┌─────────────┐
-  │   GitHub    │───────▶ │   Jenkins   |───────▶│     AWS     │
-  │  (Source)   │         │  (Trigger)  │         │    (Infra)  │
-  └─────────────┘         └─────────────┘         └─────────────┘
-                                │
-                    ┌───────────┴───────────┐
-                    ▼                       ▼
-            ┌───────────────┐      ┌───────────────┐
-            │ CI Pipeline   │      │  Security     │
-            │ (Build/Push)  │      │  Scanning     │
-            └───────────────┘      └───────────────┘
-                    │                       │
-                    └───────────┬───────────┘
-                                ▼
-                    ┌───────────────────────┐
-                    │   ArgoCD (GitOps)     │
-                    │  K8s Deployment       │
-                    └───────────────────────┘
-                                |
-                                ▼
-                    ┌───────────────────────┐
-                    │   Monitoring Stack    │
-                    │ Prometheus + Grafana  │
-                    └───────────────────────┘
+INFRASTRUCTURE LAYER (ONE-TIME / WHEN INFRA CHANGES)
+----------------------------------------------------
+
+           ┌──────────────── Infra Repo (GitHub) ────────────────┐
+           │  (Terraform for AWS EKS + VPC + Nodes + IAM)        │
+           └─────────────────────────────────────────────────────┘
+
+        ┌─────────────┐        Webhook        ┌────────────────┐
+        │  GitHub     │ ───────────────────▶ │    Jenkins     │
+        │ (Infra IaC) │                       │ Infra Pipeline │
+        └─────────────┘                       └────────────────┘
+                                                      │
+                                                      │  Terraform apply
+                                                      ▼
+                                              ┌───────────────┐
+                                              │   AWS (EKS,   │
+                                              │   VPC, Nodes) │
+                                              └───────────────┘
+                                                      │
+                            After first successful Infra run
+                                                      ▼
+                                              ┌───────────────┐
+                                              │ Install       │
+                                              │ ArgoCD on EKS │
+                                              └──────┬────────┘
+                                                     ▼
+                                       ┌────────────────────────┐
+                                       │ ArgoCD Applications    │
+                                       │ - URL Shortener        │
+                                       │ - Monitoring stack     │
+                                       │ - Security tools       │
+                                       └──────────┬─────────────┘
+                                                  ▼
+
+
+CI / CD + SECURITY (ON EVERY APP CODE CHANGE)
+---------------------------------------------
+
+           ┌──────────────── CI Repo (GitHub) ──────────────────┐
+           │ (URL Shortener source code + Jenkinsfile)          │
+           └────────────────────────────────────────────────────┘
+
+        ┌─────────────┐        Webhook        ┌───────────────┐
+        │  GitHub     │ ───────────────────▶ │    Jenkins     │
+        │ (App Code)  │                      │   CI Pipeline  │
+        └─────────────┘                      └────────────────┘
+                                                      │
+                                                      │ build / test / package
+                                                      ▼
+                                           ┌────────────────────┐
+                                           │ Security Scanning  │
+                                           │ Gitleaks + Trivy + │
+                                           │ SonarQube          │
+                                           └─────────┬──────────┘
+                                                     │  all checks pass
+                                                     ▼
+                                       ┌────────────────────────┐
+                                       │ DockerHub (Images      │
+                                       │ with auto tags)        │
+                                       └──────────┬─────────────┘
+                                                  │
+                                                  │ Update image tag
+                                                  │ in CD GitOps repo
+                                                  ▼
+                                       ┌────────────────────────┐
+                                       │ ArgoCD CD Repo         │
+                                       │ (ArgoCD-Pipeline       │
+                                       │  manifests)            │
+                                       └──────────┬─────────────┘
+                                                  │
+                                                  │ GitOps sync
+                                                  ▼
+                                       ┌────────────────────────┐
+                                       │ EKS Cluster Runtime    │
+                                       │ URL Shortener + Tools  │
+                                       └──────────┬─────────────┘
+                                                  ▼
+
+
+OBSERVABILITY & MONITORING
+--------------------------
+
+                                       ┌─────────────────────────┐
+                                       │ Monitoring Stack        │
+                                       │ Prometheus + Grafana +  │
+                                       │ Loki / Promtail         │
+                                       └─────────────────────────┘
+
+
 ```
 
 📦 Project Structure
@@ -122,15 +187,38 @@ Tech Stack:
 
 🔄 Workflow Automation
 ```
-1. Push to GitHub → Jenkins triggers Infrastructure Pipeline
-2. Terraform provisions AWS EKS cluster
-3. Security scans: Gitleaks + Trivy + SonarQube ✓
-4. Infrastructure succeeds → Auto-triggers:
-   ├─ Install ArgoCD on EKS
-   ├─ Deploy URL Shortener application
-   ├─ Deploy Monitoring stack
-   └─ Deploy Security tools
-5. Complete environment ready in ~15 minutes
+1. Push to Infra GitHub repo → Jenkins triggers:
+   └─ Infra Pipeline (provision / update EKS infrastructure)
+
+2. Infra Pipeline:
+   ├─ Runs Terraform to provision AWS EKS cluster, VPC, and node groups
+   └─ Configures base IAM roles, networking, and access for ArgoCD and workloads
+
+3. After Infra Pipeline succeeds (first run), Jenkins automatically runs:
+   ├─ ArgoCD installation job on the EKS cluster
+   ├─ ArgoCD Application for the URL Shortener (GitOps repo: ArgoCD-Pipeline)
+   ├─ ArgoCD Application for the Monitoring stack (Prometheus + Grafana + Loki)
+   └─ ArgoCD Application for Security tools (Gitleaks, Trivy, SonarQube)
+
+4. Push to CI GitHub repo (URL Shortener source code) → GitHub Webhook triggers:
+   └─ Jenkins CI Pipeline (build, security scans, and image push)
+
+5. CI Pipeline:
+   ├─ Builds the URL Shortener Docker image
+   ├─ Runs Gitleaks on the repository, Trivy on the image, and SonarQube on the code
+   ├─ Pushes the image to DockerHub with an auto-incremented tag
+   └─ Updates the ArgoCD GitOps repo (ArgoCD-Pipeline) with the new image tag
+
+6. ArgoCD watches the CD repo:
+   └─ Detects the updated image tag, auto-syncs, and deploys the new version to EKS
+
+7. Monitoring and observability:
+   ├─ Prometheus scrapes metrics from the URL Shortener and Kubernetes components
+   ├─ Grafana provides dashboards for application, cluster, and CI/CD metrics
+   └─ Loki + Promtail collect logs for troubleshooting and performance analysis
+
+8. From zero to full environment (EKS + URL Shortener + monitoring + security tools).
+
 ```
 Result: Fully automated infrastructure → build → deploy → monitor workflow with security integrated at every stage.
 
@@ -152,20 +240,12 @@ git clone https://github.com/Ahmedlebshten/Jenkins-CI-Pipeline.git
 
 git clone https://github.com/Ahmedlebshten/ArgoCD-Pipeline.git
 
-# Configure Jenkins with AWS credentials
-# Create 6 Jenkins pipelines (one per Jenkinsfile)
-# Run Infrastructure-Pipeline → Everything deploys automatically
 Access deployed services:
 
 bash
 # URL Shortener
 kubectl get svc url-shortener
 
-# ArgoCD UI
-kubectl port-forward svc/argocd-server -n argocd 9000:443
-
-# Grafana
-kubectl port-forward svc/grafana -n monitoring 3000:80
 🔒 Security Features
 Security integrated at every pipeline stage:
 
@@ -197,7 +277,7 @@ Runtime: Trivy Operator, Network Policies, Pod Security Standards
 - ✅ Security Integration (Trivy/Gitleaks/SonarQube)
 - ✅ Microservices Architecture (URL Shortener)
 
-📂 Project Repositories:
+📂 <b> <h3> Project Repositories: </b> </h3>
 
 🔗 Infrastructure Pipeline
 [github.com/Ahmedlebshten/Jenkins-Pipeline-Build-Infra](https://github.com/Ahmedlebshten/Jenkins-Pipeline-Build-Infra)
