@@ -242,7 +242,7 @@ Result: Fully automated infrastructure → build → deploy → monitor workflow
   
 <b> 🚀 Quick Start </b> 
 bash
-# Clone all repositories
+<b> Clone all repositories </b> 
 git clone https://github.com/Ahmedlebshten/Jenkins-Pipeline-Build-Infra.git
 
 git clone https://github.com/Ahmedlebshten/Jenkins-CI-Pipeline.git
@@ -252,7 +252,7 @@ git clone https://github.com/Ahmedlebshten/ArgoCD-Pipeline.git
 <b> Access deployed services: </b> 
 
 bash
-# URL Shortener
+<b> URL Shortener </b> 
 kubectl get svc url-shortener
 
 <b> 📊 Monitoring: </b> 
