@@ -273,7 +273,7 @@ kubectl get svc url-shortener
 - ✅ Microservices Architecture (URL Shortener)
 
 <b> <h3> 📂 Project Repositories: </b> </h3>
-```
+
 <b> 🔗 Infrastructure Pipeline </b> 
 [github.com/Ahmedlebshten/Jenkins-Pipeline-Build-Infra](https://github.com/Ahmedlebshten/Jenkins-Pipeline-Build-Infra)
 
@@ -288,7 +288,7 @@ Docker build pipeline for URL Shortener application
 [github.com/Ahmedlebshten/ArgoCD-Pipeline](https://github.com/Ahmedlebshten/ArgoCD-Pipeline)
 
 ArgoCD deployment manifests with monitoring and security tools
-```
+
 <b> 📬 Contact </b> 
 
 - GitHub: [https://github.com/Ahmedlebshten]
